@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: book-collection-app
+    runtime: python
+    buildCommand: ./build.sh
+    startCommand: ./start.sh
+    # envVars:
+    #   - key: DATABASE_URL
+    #     fromDatabase:
+    #       name: book_collection_db
+    #       property: connectionString
+    #   - key: SECRET_KEY
+    #     generateValue: true
