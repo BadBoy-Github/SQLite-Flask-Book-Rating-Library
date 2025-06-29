@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>My Library</h1>
+      {% if books|length == 0 %}
+        <p class="empty-message">Library is Empty</p>
+      {% else %}
+        <ul>
+        {% for book in books %}
+        <li>
+          <span>{{ book.title }} - {{ book.author }} - {{ book.rating }}/10</span>
+          <div>
+            <a href="{{ url_for('edit', book_id=book.id) }}">Edit</a>
+            <a href="{{ url_for('delete', book_id=book.id) }}">Delete</a>
+          </div>
+        </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+      <div class="form-actions" style="justify-content: center;">
+        <a href="{{ url_for('add') }}" class="btn">Add New Book</a>
+      </div>
+    </div>
+  </body>
+</html>

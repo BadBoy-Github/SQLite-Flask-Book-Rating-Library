@@ -1,0 +1,188 @@
+/* styles.css - Unified Dark Theme for Library App with Container Effects */
+:root {
+    --bg-dark: #121212;
+    --text-light: #f0f0f0;
+    --accent-red: #ff4444;
+    --accent-red-dark: #cc3636;
+    --card-bg: #1e1e1e;
+    --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --border-radius: 10px;
+    --spacing-unit: 1rem;
+    --container-padding: 2rem;
+    --glow-effect: 0 0 8px rgba(255, 68, 68, 0.4);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-light);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: var(--spacing-unit);
+    background-image:
+        radial-gradient(circle at 25% 25%, rgba(255, 68, 68, 0.1) 0%, transparent 50%),
+        radial-gradient(circle at 75% 75%, rgba(255, 68, 68, 0.1) 0%, transparent 50%);
+}
+
+.container {
+    background-color: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow), var(--glow-effect);
+    padding: var(--container-padding);
+    width: 90%;
+    max-width: 800px;
+    margin: 2rem auto;
+}
+
+h1 {
+    color: var(--accent-red);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+    text-align: center;
+    font-size: 2.5rem;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+ul {
+    list-style-type: none;
+    width: 100%;
+}
+
+li {
+    background-color: rgba(30, 30, 30, 0.8);
+    padding: var(--spacing-unit);
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    border-radius: var(--border-radius);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s ease;
+    border-left: 3px solid var(--accent-red);
+}
+
+li:hover {
+    background-color: rgba(40, 40, 40, 0.9);
+}
+
+a {
+    color: var(--accent-red);
+    text-decoration: none;
+    margin-left: calc(var(--spacing-unit) / 2);
+    transition: all 0.3s;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+}
+
+a:hover {
+    background-color: rgba(255, 68, 68, 0.2);
+    text-decoration: none;
+}
+
+form {
+    width: 100%;
+}
+
+label {
+    display: block;
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    color: var(--accent-red);
+    font-weight: 500;
+}
+
+input {
+    width: 100%;
+    padding: calc(var(--spacing-unit) / 1.5);
+    margin-bottom: var(--spacing-unit);
+    background-color: #2a2a2a;
+    border: 1px solid #3a3a3a;
+    border-radius: var(--border-radius);
+    color: var(--text-light);
+    transition: all 0.3s;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-red);
+    box-shadow: 0 0 0 2px rgba(255, 68, 68, 0.2);
+}
+
+button,
+.btn {
+    background-color: var(--accent-red);
+    color: white;
+    border: none;
+    padding: calc(var(--spacing-unit) / 1.5) var(--spacing-unit);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-align: center;
+    display: inline-block;
+}
+
+button:hover,
+.btn:hover {
+    background-color: var(--accent-red-dark);
+}
+
+.btn-secondary {
+    background-color: #2a2a2a;
+    color: var(--text-light);
+}
+
+.btn-secondary:hover {
+    background-color: #3a3a3a;
+}
+
+p {
+    margin-bottom: calc(var(--spacing-unit) / 2);
+    padding: calc(var(--spacing-unit) / 1.5);
+    background-color: #2a2a2a;
+    border-radius: 6px;
+    border-left: 2px solid var(--accent-red);
+}
+
+.empty-message {
+    color: #aaa;
+    text-align: center;
+    margin: calc(var(--spacing-unit) * 2) 0;
+    font-style: italic;
+}
+
+/* Form actions layout */
+.form-actions {
+    display: flex;
+    gap: var(--spacing-unit);
+    margin-top: var(--spacing-unit);
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: calc(var(--container-padding) / 1.5);
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: calc(var(--spacing-unit) / 2);
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+}
